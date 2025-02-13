@@ -1,19 +1,18 @@
-name: Ejecutar index.py
+name: Aprendiendo GitHub Actions
+run-name: Aprendiendo GitHub Actions
 
 on: [push]
 
 jobs:
-  ejecutar-script:
+  hello-world:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Configurar Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+    - name: definir variables
+      run: echo "USERNAME=${{ github.actor }} >> $GITHUB_ENV"
 
     - name: Ejecutar script
       run: python index.py
